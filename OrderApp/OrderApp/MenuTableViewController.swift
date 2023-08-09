@@ -11,7 +11,13 @@ import UIKit
 class MenuTableViewController: UITableViewController {
 
     let category: String
+    var imageLoadTasks: [IndexPath: Task<Void, Never>] = [:]
     var menuItems = [MenuItem]()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        MenuController.shared.updateUserActivity(with: .menu(category: category))
+    }
     
     init?(coder: NSCoder, category: String) {
         self.category = category
@@ -20,6 +26,19 @@ class MenuTableViewController: UITableViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying
+       cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Cancel the image fetching task if it's no longer needed
+        imageLoadTasks[indexPath]?.cancel()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // Cancel image fetching tasks that are no longer needed
+        imageLoadTasks.forEach { key, value in value.cancel() }
     }
     
     override func viewDidLoad() {
@@ -76,12 +95,24 @@ class MenuTableViewController: UITableViewController {
     
     func configure(_ cell: UITableViewCell, forItemAt indexPath:
        IndexPath) {
+        guard let cell = cell as? MenuItemCell else { return }
+        
         let menuItem = menuItems[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
-        content.text = menuItem.name
-        content.secondaryText = menuItem.price.formatted(.currency(code:"usd"))
-        cell.contentConfiguration = content
+        cell.itemName = menuItem.name
+        cell.price = menuItem.price
+        cell.image = nil
+        
+        imageLoadTasks[indexPath] = Task.init {
+            if let image = try? await
+               MenuController.shared.fetchImage(from: menuItem.imageURL) {
+                if let currentIndexPath = self.tableView.indexPath(for:
+                   cell),
+                      currentIndexPath == indexPath {
+                    cell.image = image
+                }
+            }
+            imageLoadTasks[indexPath] = nil
+        }
     }
-    
 }

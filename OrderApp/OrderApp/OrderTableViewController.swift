@@ -13,6 +13,11 @@ class OrderTableViewController: UITableViewController {
         return MenuController.shared.order.menuItems.count
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        MenuController.shared.updateUserActivity(with: .order)
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt
        indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Order", for: indexPath)
@@ -27,6 +32,7 @@ class OrderTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         content.text = menuItem.name
         content.secondaryText = menuItem.price.formatted(.currency(code: "usd"))
+        content.image = UIImage(systemName: "photo.on.rectangle")
         cell.contentConfiguration = content
     }
     

@@ -25,6 +25,18 @@ class MenuItemDetailViewController: UIViewController {
         nameLabel.text = menuItem.name
         priceLabel.text = menuItem.price.formatted(.currency(code: "usd"))
         detailTextLabel.text = menuItem.detailText
+        
+        Task.init {
+            if let image = try? await
+               MenuController.shared.fetchImage(from: menuItem.imageURL) {
+                imageView.image = image
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        MenuController.shared.updateUserActivity(with: .menuItemDetail(menuItem))
     }
     
     @IBAction func orderButtonTapped(_ sender: UIButton) {

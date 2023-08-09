@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -52,33 +53,38 @@
         <!--Menu Table View Controller-->
         <scene sceneID="QA4-ae-KCS">
             <objects>
-                <tableViewController id="GLC-5e-QPH" customClass="MenuTableViewController" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="menu" id="GLC-5e-QPH" customClass="MenuTableViewController" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="XnJ-w9-qlL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MenuItem" textLabel="6uQ-xk-dpQ" detailTextLabel="uNh-eL-JoD" style="IBUITableViewCellStyleValue1" id="twR-Ca-Jto">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MenuItem" textLabel="6uQ-xk-dpQ" detailTextLabel="uNh-eL-JoD" imageView="mF4-69-wgj" rowHeight="40" style="IBUITableViewCellStyleValue1" id="twR-Ca-Jto" customClass="MenuItemCell" customModule="OrderApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="twR-Ca-Jto" id="9QQ-Bb-Lk5">
-                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="40"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6uQ-xk-dpQ">
-                                            <rect key="frame" x="20" y="15" width="33" height="14.333333333333334"/>
+                                            <rect key="frame" x="95" y="13" width="33" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="$ Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uNh-eL-JoD">
-                                            <rect key="frame" x="315" y="15" width="39.666666666666664" height="14.333333333333334"/>
+                                            <rect key="frame" x="315" y="13" width="39.666666666666664" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mF4-69-wgj">
+                                            <rect key="frame" x="20" y="0.0" width="60" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <imageReference key="image" image="1.png" symbolScale="default"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -100,7 +106,7 @@
         <!--Menu Item Detail View Controller-->
         <scene sceneID="esQ-fg-u9E">
             <objects>
-                <viewController id="85E-PB-1Qz" customClass="MenuItemDetailViewController" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuItemDetail" id="85E-PB-1Qz" customClass="MenuItemDetailViewController" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EIp-1g-Maa">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="3284.7328244274809" y="-308.45070422535213"/>
         </scene>
-        <!--Root View Controller-->
+        <!--My Orders-->
         <scene sceneID="Hwg-1g-HYI">
             <objects>
                 <tableViewController id="fAH-dd-cQz" customClass="OrderTableViewController" customModule="OrderApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -216,7 +222,7 @@
                             <outlet property="delegate" destination="fAH-dd-cQz" id="Amf-nc-mtr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="8Ee-We-Dya">
+                    <navigationItem key="navigationItem" title="My Orders" id="8Ee-We-Dya">
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="1Vb-Bd-UMT">
                             <connections>
                                 <action selector="submitTapped:" destination="fAH-dd-cQz" id="UVc-Iq-71L"/>
@@ -276,7 +282,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHQ-HK-AIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="25o-XZ-8wD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2551.9083969465646" y="361.97183098591552"/>
+            <point key="canvasLocation" x="2436" y="362"/>
         </scene>
         <!--Your Order-->
         <scene sceneID="NZr-sX-div">
@@ -333,6 +339,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1.png" width="1200" height="800"/>
         <image name="bag.fill" catalog="system" width="128" height="128"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="photo.on.rectangle" catalog="system" width="128" height="98"/>
