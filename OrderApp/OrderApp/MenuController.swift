@@ -9,6 +9,7 @@ import Foundation
 
 class MenuController {
     static let shared = MenuController()
+    
     var order = Order() {
         didSet {
             NotificationCenter.default.post(name: MenuController.orderUpdatedNotification, object: nil)
@@ -79,6 +80,7 @@ class MenuController {
         let decoder = JSONDecoder()
         let orderResponse = try decoder.decode(OrderResponse.self, from: data)
         
+           print(orderResponse.prepTime)
         return orderResponse.prepTime
     }
 }
