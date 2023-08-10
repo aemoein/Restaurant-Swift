@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class MenuItemCell: UITableViewCell {
-    var itemName: String? = nil
+        var itemName: String? = nil
         {
             didSet {
                 if oldValue != itemName {
@@ -34,6 +34,7 @@ class MenuItemCell: UITableViewCell {
             }
         }
     
+    
     override func updateConfiguration(using state:
        UICellConfigurationState) {
         var content = defaultContentConfiguration().updated(for: state)
@@ -47,5 +48,17 @@ class MenuItemCell: UITableViewCell {
             content.image = UIImage(systemName: "photo.on.rectangle")
         }
         self.contentConfiguration = content
+    }
+}
+
+extension UIImage{
+    func resizeImageWithHeight(newW: CGFloat, newH: CGFloat) -> UIImage? {
+        UIGraphicsBeginImageContext(CGSize(width: newW, height: newH))
+        self.draw(in: CGRect(x: 0, y: 0, width: newW, height: newH))
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

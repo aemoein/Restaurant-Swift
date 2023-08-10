@@ -8,6 +8,8 @@
 import UIKit
 
 class OrderTableViewController: UITableViewController {
+    var imageLoadTasks: [IndexPath: Task<Void, Never>] = [:]
+    
     override func tableView(_ tableView: UITableView,
        numberOfRowsInSection section: Int) -> Int {
         return MenuController.shared.order.menuItems.count
@@ -29,11 +31,25 @@ class OrderTableViewController: UITableViewController {
        IndexPath) {
         let menuItem = MenuController.shared.order.menuItems[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
-        content.text = menuItem.name
-        content.secondaryText = menuItem.price.formatted(.currency(code: "usd"))
-        content.image = UIImage(systemName: "photo.on.rectangle")
-        cell.contentConfiguration = content
+        guard let cell = cell as? MenuItemCell else { return }
+        
+        cell.itemName = menuItem.name
+        cell.price = menuItem.price
+        cell.image = nil
+        
+        imageLoadTasks[indexPath] = Task.init {
+            if let image = try? await
+               MenuController.shared.fetchImage(from: menuItem.imageURL) {
+                if let currentIndexPath = self.tableView.indexPath(for:
+                   cell),
+                      currentIndexPath == indexPath {
+                    cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+                    let img = image.resizeImageWithHeight(newW: 60, newH: 40)
+                    cell.image = img
+                }
+            }
+            imageLoadTasks[indexPath] = nil
+        }
     }
     
     override func viewDidLoad() {

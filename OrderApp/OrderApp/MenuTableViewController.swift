@@ -109,7 +109,9 @@ class MenuTableViewController: UITableViewController {
                 if let currentIndexPath = self.tableView.indexPath(for:
                    cell),
                       currentIndexPath == indexPath {
-                    cell.image = image
+                    cell.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
+                    let img = image.resizeImageWithHeight(newW: 60, newH: 40)
+                    cell.image = img
                 }
             }
             imageLoadTasks[indexPath] = nil

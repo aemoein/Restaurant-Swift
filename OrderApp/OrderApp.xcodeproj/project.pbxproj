@@ -10,7 +10,6 @@
 		2AE14ED92A83537900224287 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE14ED82A83537900224287 /* OrderConfirmationViewController.swift */; };
 		2AE14EDB2A837A3500224287 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE14EDA2A837A3500224287 /* MenuItemCell.swift */; };
 		2AE14EDD2A83855500224287 /* Restoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE14EDC2A83855500224287 /* Restoration.swift */; };
-		2AE14EDF2A8389A600224287 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE14EDE2A8389A600224287 /* 1.png */; };
 		2AE8FF672A831D8200D950CF /* MenuItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8FF662A831D8200D950CF /* MenuItemDetailViewController.swift */; };
 		2AE8FF692A831E5300D950CF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8FF682A831E5300D950CF /* MenuItem.swift */; };
 		2AE8FF6B2A831F2F00D950CF /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE8FF6A2A831F2F00D950CF /* ResponseModels.swift */; };
@@ -30,7 +29,6 @@
 		2AE14ED82A83537900224287 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		2AE14EDA2A837A3500224287 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
 		2AE14EDC2A83855500224287 /* Restoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restoration.swift; sourceTree = "<group>"; };
-		2AE14EDE2A8389A600224287 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		2AE8FF662A831D8200D950CF /* MenuItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailViewController.swift; sourceTree = "<group>"; };
 		2AE8FF682A831E5300D950CF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		2AE8FF6A2A831F2F00D950CF /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				2AE14ED82A83537900224287 /* OrderConfirmationViewController.swift */,
 				2AE14EDA2A837A3500224287 /* MenuItemCell.swift */,
 				2AE14EDC2A83855500224287 /* Restoration.swift */,
-				2AE14EDE2A8389A600224287 /* 1.png */,
 			);
 			path = OrderApp;
 			sourceTree = "<group>";
@@ -159,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF54DEA2A82AA8A00C7278F /* LaunchScreen.storyboard in Resources */,
-				2AE14EDF2A8389A600224287 /* 1.png in Resources */,
 				2AF54DE72A82AA8A00C7278F /* Assets.xcassets in Resources */,
 				2AF54DE52A82AA8900C7278F /* Main.storyboard in Resources */,
 			);
@@ -334,6 +330,7 @@
 				DEVELOPMENT_TEAM = 5R6463GS56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrderApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -362,6 +359,7 @@
 				DEVELOPMENT_TEAM = 5R6463GS56;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrderApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
